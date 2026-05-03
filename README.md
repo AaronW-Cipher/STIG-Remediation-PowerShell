@@ -1,36 +1,67 @@
-# STIG-Remediation-PowerShell
+# 🛡️ Windows 11 STIG Remediation (PowerShell)
 
-Remediated DISA Windows 11 STIG findings using PowerShell with validation, Tenable rescans, and security documentation aligned to SOC analyst workflows.
+Hands-on remediation of DISA Windows 11 STIG findings using PowerShell in a Cyber Range environment.  
+Focused on vulnerability management, system hardening, and validation aligned with real-world SOC workflows.
 
 ---
 
-## STIGs Remediated
+## 🔧 Skills Demonstrated
+
+- Vulnerability Remediation (DISA STIGs)
+- PowerShell Scripting & Automation
+- Windows Security Hardening
+- Account & Password Policy Enforcement
+- Firewall Configuration
+- Service Hardening
+- Event Logging & Audit Configuration
+- Validation & Compliance Verification
+- Tenable Vulnerability Scanning
+
+---
+
+## 🧰 Tools & Technologies
+
+- PowerShell
+- Windows 11
+- Tenable Vulnerability Management
+- Local Security Policy (secedit)
+- Windows Services & Firewall
+
+---
+
+## 📊 STIGs Remediated
 
 | STIG ID | Description | Status |
 |--------|------------|--------|
 | WN11-AC-000005 | Account Lockout Duration | ✅ Completed |
+| WN11-AC-000010 | Lockout Threshold | ✅ Completed |
+| WN11-AC-000015 | Reset Lockout Counter | ✅ Completed |
+| WN11-AC-000020 | Password History | ✅ Completed |
+| WN11-AC-000030 | Minimum Password Age | ✅ Completed |
+| WN11-AC-000035 | Minimum Password Length | ✅ Completed |
+| WN11-AC-000040 | Password Complexity | ✅ Completed |
+| WN11-00-000175 | Secondary Logon Service | ✅ Completed |
+| WN11-00-000135 | Windows Defender Firewall | ✅ Completed |
+| WN11-AU-000500 | Application Log Size | ✅ Completed |
 
 ---
 
-## Example Remediation
+## 🔍 Example Remediation Workflow
 
-### WN11-AC-000005
+### STIG: WN11-AC-000010 (Lockout Threshold)
 
-**Title:** Account Lockout Duration must be configured to 15 minutes or greater  
+**Issue:**  
+System allowed excessive failed login attempts, increasing risk of brute-force attacks.
 
-**Severity:** Medium  
-
----
-
-### Issue
-
-The system was non-compliant with STIG requirements:
-- Lockout duration was set below 15 minutes
-- This increases risk of brute-force password attacks
-
----
-
-### Fix Implemented
-
+**Remediation (PowerShell):**
 ```powershell
-net accounts /lockoutduration:15
+net accounts /lockoutthreshold:3
+
+**Verification:**
+```powershell
+net accounts
+
+**Result:**
+```
+Lockout threshold: 3
+```
