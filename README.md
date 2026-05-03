@@ -56,10 +56,12 @@ System allowed excessive failed login attempts, increasing risk of brute-force a
 **Remediation (PowerShell):**
 ```powershell
 net accounts /lockoutthreshold:3
+```
 
 **Verification:**
 ```powershell
 net accounts
+```
 
 **Result:**
 ```
